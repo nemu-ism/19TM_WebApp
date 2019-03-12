@@ -1,7 +1,3 @@
-(document).ready(function() {
-("#display").load("lylics.txt");
-});
-
 function TextInput() {
     var fso = new ActiveXObject("Scripting.FileSystemObject");
     var file = fso.OpenTextFile("lylics.txt");
