@@ -11,9 +11,9 @@
    player = new YT.Player( 'player', {
     width: '960',
     height: '540',
-    videoId: 'AK9g8qIAW-E', // YouTube動画ID
+    videoId: 'dBdEb4XVLqs', // YouTube動画ID
     events: {
-     'onReady':onPlayerReady // 準備ができたらと再生を始めるように指示
+     'onReady':onPlayerReady // 準備ができたら再生を始めるように指示
     }
    });
   }
@@ -22,12 +22,3 @@
   function onPlayerReady(event) {
    event.target.playVideo();
   }
-
-  // HTML読み込み完了時に実行
-  window.onload = function() {
-   var goButton = document.getElementById("goButton");
-   goButton.onclick = function() {
-    var elem = document.getElementById("seekTime");
-    player.seekTo(elem.value);
-   };
-  };

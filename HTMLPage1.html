@@ -2,19 +2,27 @@
 <html lang="ja">
  <head>
   <meta charset="utf-8">
-  <title>YouTubeのムービーを組み込む</title>
-  <style>
-   #seekTime {
-    text-align: right;
-   }
-  </style>
-  <script type="text/javascript" src="ControllYoutube.js"></script>
-  <script type="text/javascript" src="FileWriter.js" charset="shift-jis"></script>
+  <title>TM_WebApp</title>
+  <script type="text/javascript" src="controller\MovieCOntroller.js"></script>
+  <script type="text/javascript" src="controller\FileController.js" charset="shift-jis"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <link rel="stylesheet" href="StyleSheet1.css">
+
+<script type="text/javascript">
+$(document).ready(function() {
+$("#display").load("lylics.txt");
+});
+</script>
+<style>
+body{ line-height:1.5;}
+#display{margin:0;padding:10px; width:400px; border:3px solid #CC0;} 
+</style>
+
  </head>
  <body>
+  <div id="display"></div>
   <div id="player"></div>
   <textarea name="lylics_input" id="textarea_id" aria-valuemax="1" cols="50" rows=5></textarea>
-  <a id="download" href="#" download="test.txt" onclick="run()">download</a>
+  <a id="download" href="#" download="test.txt" onclick="FileWriter()">入力結果</a>
  </body>
 </html>
