@@ -8,6 +8,6 @@ function FileWrite(Filename, Stream) {
 }
  
 function run(){    
-    var Stream = '‚ ‚¢‚¤‚¦‚¨';
+    var Stream = document.getElementById("textarea_id").value;
     FileWrite('test.txt',Stream);
 }
