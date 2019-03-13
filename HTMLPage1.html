@@ -12,6 +12,18 @@
 $(document).ready(function() {
 $("#display").load("lylics.txt");
 });
+
+function goNext(keycode) {
+var fso = new ActiveXObject("Scripting.FileSystemObject");
+alert("a");
+var file = fso.OpenTextFile("test.txt");
+text = file.ReadLine();
+    if(13 === keycode) {
+        target = document.getElementById("display");
+        target.innerHTML = text;
+        alert("a");
+    }
+}
 </script>
 <style>
 body{ line-height:1.5;}
@@ -22,7 +34,7 @@ body{ line-height:1.5;}
  <body>
   <div id="display"></div>
   <div id="player"></div>
-  <textarea name="lylics_input" id="textarea_id" aria-valuemax="1" cols="50" rows=5></textarea>
+  <textarea name="lylics_input" id="textarea_id" aria-valuemax="1" cols="50" rows=5 onkeypress="goNext(event.keyCode);"></textarea>
   <a id="download" href="#" download="test.txt" onclick="FileWriter()">入力結果</a>
  </body>
 </html>

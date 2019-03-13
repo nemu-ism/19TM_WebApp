@@ -1,4 +1,4 @@
-function TextInput() {
+﻿function TextInput() {
     var fso = new ActiveXObject("Scripting.FileSystemObject");
     var file = fso.OpenTextFile("lylics.txt");
 
@@ -6,6 +6,18 @@ function TextInput() {
         text += file.ReadLine();
     }
 }
+
+/*
+var fs = require('fs');
+var readline = require("readline");
+
+var text = fs.readFileSync("lylics.txt");
+var lines = text.toString().split('¥n');
+
+for (var line of lines) {
+  console.log(line)
+}
+*/
 
 function FileWriter() {
     var Stream = document.getElementById("textarea_id").value;
