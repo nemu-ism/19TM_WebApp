@@ -8,23 +8,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <link rel="stylesheet" href="StyleSheet1.css">
 
-<script type="text/javascript">
-$(document).ready(function() {
-$("#display").load("lylics.txt");
-});
-
-function goNext(keycode) {
-var fso = new ActiveXObject("Scripting.FileSystemObject");
-alert("a");
-var file = fso.OpenTextFile("test.txt");
-text = file.ReadLine();
-    if(13 === keycode) {
-        target = document.getElementById("display");
-        target.innerHTML = text;
-        alert("a");
-    }
-}
-</script>
 <style>
 body{ line-height:1.5;}
 #display{margin:0;padding:10px; width:400px; border:3px solid #CC0;} 
@@ -32,6 +15,25 @@ body{ line-height:1.5;}
 
  </head>
  <body>
+  <input type="file" id="getfile" accept="text/*" />
+  <script>
+    var file = document.querySelector('#getfile');
+
+    var list = new Array();
+    file.onchange = function (){
+        var fileList = file.files;
+        //読み込み
+        var reader = new FileReader();
+        reader.readAsText(fileList[0]);
+
+        //読み込み後
+        reader.onload = function  () {
+            list = reader.result.split(/\r\n|\r|\n/);
+          document.querySelector('#display').textContent = list[0];
+        };
+    };
+  </script>
+
   <div id="display"></div>
   <div id="player"></div>
   <textarea name="lylics_input" id="textarea_id" aria-valuemax="1" cols="50" rows=5 onkeypress="goNext(event.keyCode);"></textarea>
