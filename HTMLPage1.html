@@ -1,42 +1,36 @@
 ﻿<!DOCTYPE html>
 <html lang="ja">
- <head>
-  <meta charset="utf-8">
-  <title>TM_WebApp</title>
-  <script type="text/javascript" src="controller\MovieCOntroller.js"></script>
-  <script type="text/javascript" src="controller\FileController.js" charset="shift-jis"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <link rel="stylesheet" href="StyleSheet1.css">
+<head>
+    <meta charset="utf-8">
+    <title>TM_WebApp</title>
+    <script type="text/javascript" src="controller\MovieCOntroller.js"></script>
+    <script type="text/javascript" src="controller\FileController.js" charset="shift-jis"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="css\StyleSheet1.css">
 
-<style>
-body{ line-height:1.5;}
-#display{margin:0;padding:10px; width:400px; border:3px solid #CC0;} 
-</style>
-
- </head>
- <body>
-  <input type="file" id="getfile" accept="text/*" />
-  <script>
-    var file = document.querySelector('#getfile');
-
-    var list = new Array();
-    file.onchange = function (){
-        var fileList = file.files;
-        //読み込み
-        var reader = new FileReader();
-        reader.readAsText(fileList[0]);
-
-        //読み込み後
-        reader.onload = function  () {
-            list = reader.result.split(/\r\n|\r|\n/);
-          document.querySelector('#display').textContent = list[0];
+</head>
+<body>
+    <input type="file" id="getfile" accept="text/*" />
+    <script>
+        var file = document.querySelector('#getfile');
+        
+        var list = new Array();
+        file.onchange = function (){
+            var fileList = file.files;
+            //読み込み
+            var reader = new FileReader();
+            reader.readAsText(fileList[0]);
+            //読み込み後
+            reader.onload = function  () {
+                list = reader.result.split(/\r\n|\r|\n/);
+                document.querySelector('#display').textContent = list[0];
+            };
         };
-    };
-  </script>
-
-  <div id="display"></div>
-  <div id="player"></div>
-  <textarea name="lylics_input" id="textarea_id" aria-valuemax="1" cols="50" rows=5 onkeypress="goNext(event.keyCode);"></textarea>
-  <a id="download" href="#" download="test.txt" onclick="FileWriter()">入力結果</a>
- </body>
+    </script>
+    
+    <div id="display"></div>
+    <div id="player"></div>
+    <textarea name="lylics_input" id="textarea_id" aria-valuemax="1" cols="50" rows=5 onkeypress="goNext(event.keyCode);"></textarea>
+    <a id="download" href="#" download="test.txt" onclick="FileWriter()">入力結果</a>
+</body>
 </html>
