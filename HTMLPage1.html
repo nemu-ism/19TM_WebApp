@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="css\StyleSheet1.css">
 </head>
 <body>
-    <input type="file" id="getfile" accept="text/*" /> <br />
+    <input type="file" id="getfile" accept="text/*" oninput="countReset()" /> <br />
     <input type="text" id="videoURL" placeholder="Youtube動画URLを入力"/>
-    <button type="button" onclick="loadVideo()">更新</button>
+    <button type="button" onclick="loadVideo();countReset()">更新</button>
     <script>
         var file = document.querySelector('#getfile');
         
@@ -36,6 +36,10 @@
                     document.getElementById('display').innerHTML = "～歌詞が終了しました～";
                 }
             }
+        }
+
+        function countReset() {
+            count = 0;
         }
     </script>
     <div id="playDisp">
