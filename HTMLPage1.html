@@ -15,6 +15,7 @@
         var file = document.querySelector('#getfile');
         
         var list = new Array();
+        count = 0;
         file.onchange = function (){
             var fileList = file.files;
             //読み込み
@@ -23,9 +24,17 @@
             //読み込み後
             reader.onload = function  () {
                 list = reader.result.split(/\r\n|\r|\n/);
-                document.querySelector('#display').textContent = list[0];
+                document.getElementById('display').innerHTML = list[count];
             };
         };
+
+        function goNext(keycode) {
+            if(count < list.length-1) {
+                if(keycode === 13) document.getElementById('display').innerHTML = list[++count]];
+            } else {
+                document.getElementById('display').innerHTML = "～歌詞が終了しました～";
+            }
+        }
     </script>
     <div id="playDisp">
         <div id="player"></div>
