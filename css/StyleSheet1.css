@@ -4,12 +4,13 @@
 
 #playDisp {
     position:relative;
+    top:20px;
     padding:0;
 }
 
 #display {
     position:absolute;
-    top:120px;
+    top:80px;
     margin:0;
     padding:10px;
     width:735px;
@@ -22,18 +23,19 @@
 
 #player {
     position: absolute;
-    top: 40px;
+    top: 0px;
 }
 
 #input {
     position:absolute;
-    top:630px;
+    top:600px;
     width:735px;
     font-family:cursive;
     font-size:30px;
+    box-sizing:border-box;
 }
 
 #download {
     position:absolute;
-    top:710px;
+    top:690px;
 }
