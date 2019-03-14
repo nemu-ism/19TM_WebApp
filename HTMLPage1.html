@@ -5,9 +5,7 @@
     <title>TM_WebApp</title>
     <script type="text/javascript" src="controller\MovieCOntroller.js"></script>
     <script type="text/javascript" src="controller\FileController.js" charset="shift-jis"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <link rel="stylesheet" href="css\StyleSheet1.css">
-
 </head>
 <body>
     <input type="file" id="getfile" accept="text/*" /> <br />
@@ -23,7 +21,7 @@
             //読み込み
             var reader = new FileReader();
             reader.readAsText(fileList[0]);
-            //読み込み後
+
             reader.onload = function  () {
                 list = reader.result.split(/\r\n|\r|\n/);
                 document.getElementById('display').innerHTML = list[count]+ "<br><div style=\"color:gray\">" + list[count+1] +"</div>";
@@ -31,10 +29,12 @@
         };
 
         function goNext(keycode) {
-            if(count < list.length-1) {
-                if(keycode === 13) document.getElementById('display').innerHTML = list[++count] + "<br><div style=\"color:gray\">" + list[count+1] +"</div>";
-            } else {
-                document.getElementById('display').innerHTML = "～歌詞が終了しました～";
+            if(list.length > 0){
+                if(count < list.length-1) {
+                    if(keycode === 13) document.getElementById('display').innerHTML = list[++count] + "<br><div style=\"color:gray\">" + list[count+1] +"</div>";
+                } else {
+                    document.getElementById('display').innerHTML = "～歌詞が終了しました～";
+                }
             }
         }
     </script>

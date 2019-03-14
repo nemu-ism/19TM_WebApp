@@ -12,7 +12,7 @@ function onYouTubeIframeAPIReady() {
 }
 
 function loadVideo() {
-    if(player) {
+    if(player && document.getElementById('videoURL').value) {
         player.destroy();
         videoId = document.getElementById('videoURL').value.substr(32,11);
     }
