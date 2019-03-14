@@ -12,9 +12,6 @@ function onYouTubeIframeAPIReady() {
         width: '760', //960
         height: '540', //540
         videoId: 'dBdEb4XVLqs', // YouTube“®‰æID
-        events: {
-            'onReady':onPlayerReady // €”õ‚ª‚Å‚«‚½‚çÄ¶‚ğn‚ß‚é‚æ‚¤‚Éw¦
-        }
     });
 }
 
