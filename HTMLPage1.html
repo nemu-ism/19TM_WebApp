@@ -24,13 +24,13 @@
             //読み込み後
             reader.onload = function  () {
                 list = reader.result.split(/\r\n|\r|\n/);
-                document.getElementById('display').innerHTML = list[count];
+                document.getElementById('display').innerHTML = list[count]+ "<br><div style=\"color:gray\">" + list[count+1] +"</div>";
             };
         };
 
         function goNext(keycode) {
             if(count < list.length-1) {
-                if(keycode === 13) document.getElementById('display').innerHTML = list[++count]];
+                if(keycode === 13) document.getElementById('display').innerHTML = list[++count] + "<br><div style=\"color:gray\">" + list[count+1] +"</div>";
             } else {
                 document.getElementById('display').innerHTML = "～歌詞が終了しました～";
             }
