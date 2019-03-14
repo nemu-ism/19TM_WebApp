@@ -9,8 +9,8 @@ var player;
 function onYouTubeIframeAPIReady() {
     // 動画プレーヤーを挿入する YT.Player オブジェクトを作成する
     player = new YT.Player( 'player', {
-        width: '960',
-        height: '540',
+        width: '760', //960
+        height: '540', //540
         videoId: 'dBdEb4XVLqs', // YouTube動画ID
         events: {
             'onReady':onPlayerReady // 準備ができたら再生を始めるように指示

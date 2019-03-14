@@ -27,10 +27,11 @@
             };
         };
     </script>
-    
-    <div id="display"></div>
-    <div id="player"></div>
-    <textarea name="lylics_input" id="textarea_id" aria-valuemax="1" cols="50" rows=5 onkeypress="goNext(event.keyCode);"></textarea>
+    <div id="playDisp">
+        <div id="player"></div>
+        <div id="display"></div>
+    </div>
+    <textarea name="lylics_input" id="input" aria-valuemax="1" cols="50" rows=5 onkeypress="goNext(event.keyCode);"></textarea>
     <a id="download" href="#" download="test.txt" onclick="FileWriter()">入力結果</a>
 </body>
 </html>
