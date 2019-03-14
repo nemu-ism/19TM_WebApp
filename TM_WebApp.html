@@ -5,12 +5,12 @@
     <title>TM_WebApp</title>
     <script type="text/javascript" src="controller\MovieCOntroller.js"></script>
     <script type="text/javascript" src="controller\FileController.js" charset="shift-jis"></script>
-    <link rel="stylesheet" href="css\StyleSheet1.css">
+    <link rel="stylesheet" href="css\StyleSheet.css">
 </head>
 <body>
     <input type="file" id="getfile" accept="text/*" oninput="countReset()" /> <br />
-    <input type="text" id="videoURL" placeholder="Youtube動画URLを入力"/>
-    <button type="button" onclick="loadVideo();countReset()">更新</button>
+    <input type="text" id="videoURL" placeholder="https://www.youtube.com/"/>
+    <button type="button" onclick="loadVideo();countReset()">Go</button>
     <script>
         var file = document.querySelector('#getfile');
         
@@ -33,7 +33,7 @@
                 if(count < list.length-1) {
                     if(keycode === 13) document.getElementById('display').innerHTML = list[++count] + "<br><div style=\"color:gray\">" + list[count+1] +"</div>";
                 } else {
-                    document.getElementById('display').innerHTML = "～歌詞が終了しました～";
+                    document.getElementById('display').innerHTML = "～fin～";
                 }
             }
         }
@@ -47,7 +47,7 @@
         <div id="display"></div>
     </div>
     <textarea name="lylics_input" id="input" aria-valuemax="1" cols="50" rows=2 
-        placeholder="歌詞タイピング" onkeypress="goNext(event.keyCode);"></textarea>
-    <a id="download" href="#" download="test.txt" onclick="FileWriter()">入力結果</a>
+        placeholder="TypingArea" onkeypress="goNext(event.keyCode);"></textarea>
+    <a id="download" href="#" download="test.txt" onclick="FileWriter()">Export</a>
 </body>
 </html>
