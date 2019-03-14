@@ -6,13 +6,15 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 // IFrame Player API コードが読み込まれると onYouTubeIframeAPIReady関数が実行される
 var player;
+videoId = 'xyQS4XOFK1M'
 function onYouTubeIframeAPIReady() {
-    loadVideo('dBdEb4XVLqs');
+    loadVideo();
 }
 
-function loadVideo(videoId) {
+function loadVideo() {
     if(player) {
         player.destroy();
+        videoId = document.getElementById('videoURL').value.substr(32,11);
     }
     player = new YT.Player( 'player', {
         width: '760', //960

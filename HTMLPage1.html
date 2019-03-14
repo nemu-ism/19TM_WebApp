@@ -10,8 +10,9 @@
 
 </head>
 <body>
-    <button type="button" onclick="loadVideo('EKUBLenVvH4')">更新</button><br />
-    <input type="file" id="getfile" accept="text/*"/>
+    <input type="file" id="getfile" accept="text/*" /> <br />
+    <input type="text" id="videoURL" placeholder="Youtube動画URLを入力"/>
+    <button type="button" onclick="loadVideo()">更新</button>
     <script>
         var file = document.querySelector('#getfile');
         
