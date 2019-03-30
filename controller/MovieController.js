@@ -6,19 +6,19 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 // IFrame Player API コードが読み込まれると onYouTubeIframeAPIReady関数が実行される
 var player;
+videoId = 'xyQS4XOFK1M'
 function onYouTubeIframeAPIReady() {
-    // 動画プレーヤーを挿入する YT.Player オブジェクトを作成する
+    loadVideo();
+}
+
+function loadVideo() {
+    if(player && document.getElementById('videoURL').value) {
+        player.destroy();
+        videoId = document.getElementById('videoURL').value.substr(32,11);
+    }
     player = new YT.Player( 'player', {
         width: '760', //960
         height: '540', //540
-        videoId: 'dBdEb4XVLqs', // YouTube動画ID
-        events: {
-            'onReady':onPlayerReady // 準備ができたら再生を始めるように指示
-        }
+        videoId: videoId, // YouTube動画ID
     });
-}
-
-// 再生を開始する関数
-function onPlayerReady(event) {
-    event.target.playVideo();
 }

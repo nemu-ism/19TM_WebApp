@@ -5,12 +5,12 @@
     <title>TM_WebApp</title>
     <script type="text/javascript" src="controller\MovieCOntroller.js"></script>
     <script type="text/javascript" src="controller\FileController.js" charset="shift-jis"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="css\StyleSheet1.css">
-
+    <link rel="stylesheet" href="css\StyleSheet.css">
 </head>
 <body>
-    <input type="file" id="getfile" accept="text/*" />
+    <input type="file" id="getfile" accept="text/*" oninput="countReset()" /> <br />
+    <input type="text" id="videoURL" placeholder="https://www.youtube.com/"/>
+    <button type="button" onclick="loadVideo();countReset()">Go</button>
     <script>
         var file = document.querySelector('#getfile');
         
@@ -21,7 +21,7 @@
             //読み込み
             var reader = new FileReader();
             reader.readAsText(fileList[0]);
-            //読み込み後
+
             reader.onload = function  () {
                 list = reader.result.split(/\r\n|\r|\n/);
                 document.getElementById('display').innerHTML = list[count]+ "<br><div style=\"color:gray\">" + list[count+1] +"</div>";
@@ -29,18 +29,25 @@
         };
 
         function goNext(keycode) {
-            if(count < list.length-1) {
-                if(keycode === 13) document.getElementById('display').innerHTML = list[++count] + "<br><div style=\"color:gray\">" + list[count+1] +"</div>";
-            } else {
-                document.getElementById('display').innerHTML = "～歌詞が終了しました～";
+            if(list.length > 0){
+                if(count < list.length-1) {
+                    if(keycode === 13) document.getElementById('display').innerHTML = list[++count] + "<br><div style=\"color:gray\">" + list[count+1] +"</div>";
+                } else {
+                    document.getElementById('display').innerHTML = "～fin～";
+                }
             }
+        }
+
+        function countReset() {
+            count = 0;
         }
     </script>
     <div id="playDisp">
         <div id="player"></div>
         <div id="display"></div>
     </div>
-    <textarea name="lylics_input" id="input" aria-valuemax="1" cols="50" rows=2 onkeypress="goNext(event.keyCode);"></textarea>
-    <a id="download" href="#" download="test.txt" onclick="FileWriter()">入力結果</a>
+    <textarea name="lylics_input" id="input" aria-valuemax="1" cols="50" rows=2 
+        placeholder="TypingArea" onkeypress="goNext(event.keyCode);"></textarea>
+    <a id="download" href="#" download="test.txt" onclick="FileWriter()">Export</a>
 </body>
 </html>

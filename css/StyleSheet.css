@@ -4,7 +4,7 @@
 
 #playDisp {
     position:relative;
-    top:20px;
+    top:0px;
     padding:0;
 }
 
@@ -15,7 +15,6 @@
     padding:10px;
     width:735px;
     height:100px;
-    border:3px solid #CC0;
     background-color:rgba(255, 255, 255, 0.7);
     font-family:cursive;
     font-size:30px;
